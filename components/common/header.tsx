@@ -3,13 +3,10 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import {
   CompassIcon,
   HomeIcon,
-  LoaderIcon,
   SparkleIcon,
   SparklesIcon,
-} 
-from "lucide-react";
+} from "lucide-react";
 import Link from "next/link";
-import { Suspense } from "react";
 import { Button } from "../ui/button";
 import CustomUserButton from "./custom-user-button";
 
@@ -25,6 +22,7 @@ const Logo = () => {
     </Link>
   );
 };
+
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
@@ -49,30 +47,21 @@ export default function Header() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Suspense
-              fallback={
-                <div>
-                  <LoaderIcon className="size-4 animate-spin" />
-                </div>
-              }
-            >
-              <SignedOut>
-                <SignInButton />
-                <SignUpButton>
-                  <Button>Sign Up</Button>
-                </SignUpButton>
-              </SignedOut>
-              <SignedIn>
-                <Button asChild>
-                  <Link href="/submit">
-                    <SparklesIcon className="size-4" />
-                    Submit Project
-                  </Link>
-                </Button>
-
-                <CustomUserButton />
-              </SignedIn>
-            </Suspense>
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton>
+                <Button>Sign Up</Button>
+              </SignUpButton>
+            </SignedOut>
+            <SignedIn>
+              <Button asChild>
+                <Link href="/submit">
+                  <SparklesIcon className="size-4" />
+                  Submit Project
+                </Link>
+              </Button>
+              <CustomUserButton />
+            </SignedIn>
           </div>
         </div>
       </div>
