@@ -35,7 +35,8 @@ export async function getAllProducts() {
 }
 
 export async function getRecentlyLaunchedProducts() {
-  await connection();
+  "use cache";
+  
   const productsData = await getAllApprovedProducts();
   const oneWeekAgo = new Date();
   oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
