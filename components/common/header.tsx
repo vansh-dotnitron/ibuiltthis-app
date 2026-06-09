@@ -6,7 +6,8 @@ import {
   LoaderIcon,
   SparkleIcon,
   SparklesIcon,
-} from "lucide-react";
+} 
+from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 import { Button } from "../ui/button";
